@@ -3,6 +3,11 @@
   "author": "Simon Ayzman",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "start": "NODE_PATH=src/ node src/index.js",
+    "debug": "NODE_PATH=src/ node --inspect src/index.js",
+    "test": "mocha"
+  },
   "dependencies": {
     "chalk": "2.4.2",
     "clear": "0.1.0",
@@ -10,9 +15,7 @@
     "figlet": "1.2.4",
     "inquirer": "7.0.0"
   },
-  "scripts": {
-    "start": "NODE_PATH=src/ node src/index.js",
-    "debug": "NODE_PATH=src/ node --inspect src/index.js",
-    "test": "echo 'No tests written'"
+  "devDependencies": {
+    "mocha": "6.2.0"
   }
 }
