@@ -1,3 +1,7 @@
+const constants = require("lib/constants");
+
+const { RANKS } = constants;
+
 class BlackjackPlayer {
     constructor(name) {
         this.name = name;
@@ -13,7 +17,7 @@ class BlackjackPlayer {
     }
 
     displayHand() {
-        let handOutput = `(Hand value: ${this.getHandValue()}) `;
+        let handOutput = `${this.name} (${this.getHandValue()}): `;
         for (let handIndex = 0; handIndex < this.hand.length; handIndex++) {
             const card = this.hand[handIndex];
             handOutput += card.getCardFace();
@@ -33,10 +37,10 @@ class BlackjackPlayer {
             if (typeof rank === "number") {
                 value += rank;
             } else if (typeof rank === "string") {
-                if (rank === "A") {
+                if (rank === RANKS.Ace) {
                     numberOfAces++;
                     value += 11;
-                } else if (rank === "J" || rank === "Q" || rank === "K") {
+                } else if (rank === RANKS.Jack || rank === RANKS.Queen || rank === RANKS.King) {
                     value += 10;
                 } else {
                     throw new Error("Unknown card.");
