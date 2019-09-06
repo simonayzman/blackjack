@@ -23,7 +23,7 @@ class BlackjackGame {
 
         let stillPlaying = true;
         while (stillPlaying) {
-            this.playRound();
+            await this.playRound();
             const { continuePlaying } = await inquirer.prompt([
                 {
                     name: 'continuePlaying',
@@ -41,11 +41,12 @@ class BlackjackGame {
         this.deck.reset();
         this.deck.shuffle();
 
-        for (let playerIndex = 0; playerIndex < this.players.length; playerIndex++) {
-            const player = this.players[playerIndex];
+        this.dealer.resetHand();
+        for (let player of this.players) {
             player.resetHand();
         }
-
+        
+        clear();
         clear();
     }
 
