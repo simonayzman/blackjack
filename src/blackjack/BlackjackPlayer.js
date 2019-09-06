@@ -8,6 +8,10 @@ class BlackjackPlayer {
         this.hand = [];
     }
 
+    getName() {
+        return this.name;
+    }
+
     resetHand() {
         this.hand = [];
     }
