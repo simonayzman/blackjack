@@ -1,8 +1,8 @@
 const assert = require('assert');
 
-const Card = require('../src/cards/Card');
-const BlackjackPlayer = require('../src/blackjack/BlackjackPlayer');
-const constants = require('../src/lib/constants');
+const Card = require('cards/Card');
+const BlackjackPlayer = require('blackjack/BlackjackPlayer');
+const constants = require('lib/constants');
 
 const { SUITS, RANKS } = constants;
 
