@@ -23,9 +23,6 @@ class BlackjackGame {
     }
 
     async start() {
-        const introText = figlet.textSync("Let's play Blackjack!", { horizontalLayout: 'full' });
-        console.log(chalk.redBright(introText));
-
         let stillPlaying = true;
         while (stillPlaying) {
             await this.playRound();
