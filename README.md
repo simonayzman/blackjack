@@ -19,6 +19,10 @@ When the game starts, the program asks for the number of players playing. Then, 
 
 A number of more complicated rules and game mechanisms have been ignored for the purposes of this code submission. This list includes, but is not limited to (1) betting, (2) splitting pairs, (3) doubling down, (4) insurance, (5) standard casino shuffling, and (6) round-end on all player bust/Blackjack. For a complete list of Blackjack rules, visit the [Bicycle Blackjack rules site](https://bicyclecards.com/how-to-play/blackjack/).
 
+### Dependencies
+
+All external libraries used can be found in [package.json](package.json).
+
 ### Example Game
 
 ```
