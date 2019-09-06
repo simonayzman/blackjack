@@ -102,6 +102,20 @@ class BlackjackGame {
             console.log();
         }
 
+        // Dealers turn
+        this.dealer.displayHand();
+        while (this.shouldDealerHit()) {
+            console.log(`${this.dealer.getName()} hits!`);
+            this.dealer.receiveNewCard(this.deck.dealCard());
+            this.dealer.displayHand();
+        }
+        if (this.dealer.getHandValue() > 21) {
+            console.log(`${this.dealer.getName()} busted!`);
+        } else {
+            console.log(`${this.dealer.getName()} stands!`);
+        }
+        console.log();
+
     shouldDealerHit() {
         return this.dealer.getHandValue() < 17;
     }
