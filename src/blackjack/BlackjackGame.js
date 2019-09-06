@@ -52,6 +52,20 @@ class BlackjackGame {
 
     playRound() {
         this.resetRound();
+
+        // Initial deal
+        console.log("=====================");
+        this.dealer.receiveNewCard(this.deck.dealCard());
+        this.dealer.receiveNewCard(this.deck.dealCard());
+        this.dealer.displayHand(true);
+        console.log("=====================");
+        for (let player of this.players) {
+            player.receiveNewCard(this.deck.dealCard());
+            player.receiveNewCard(this.deck.dealCard());
+            player.displayHand();
+        }
+        console.log("=====================\n");
+
     shouldDealerHit() {
         return this.dealer.getHandValue() < 17;
     }
