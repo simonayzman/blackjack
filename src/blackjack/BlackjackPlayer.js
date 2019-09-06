@@ -23,6 +23,36 @@ class BlackjackPlayer {
         }
         console.log(handOutput);
     }
+
+    getHandValue() {
+        let value = 0;
+        let numberOfAces = 0;
+        for (let cardIndex = 0; cardIndex < this.hand.length; cardIndex++) {
+            const card = this.hand[cardIndex];
+            const rank = card.getRank();
+            if (typeof rank === "number") {
+                value += rank;
+            } else if (typeof rank === "string") {
+                if (rank === "A") {
+                    numberOfAces++;
+                    value += 11;
+                } else if (rank === "J" || rank === "Q" || rank === "K") {
+                    value += 10;
+                } else {
+                    throw new Error("Unknown card.");
+                }
+            } else {
+                throw new Error("Unknown card.");
+            }
+        }
+
+        while (value > 21 && numberOfAces > 0) {
+            value -= 10;
+            numberOfAces--;
+        }
+
+        return value;
+    }
 }
 
 module.exports = BlackjackPlayer;
