@@ -116,6 +116,28 @@ class BlackjackGame {
         }
         console.log();
 
+        // Showdown
+        const dealerHandValue = this.dealer.getHandValue();
+        for (let player of this.players) {
+            const playerHandValue = player.getHandValue();
+            if (playerHandValue > 21) {
+                console.log(chalk.redBright(`${player.getName()} LOST by busting.`))
+            } else {
+                if (dealerHandValue > 21) {
+                    console.log(chalk.greenBright(`${player.getName()} WON because ${this.dealer.getName()} busted.`))
+                } else if (dealerHandValue === playerHandValue) {
+                    console.log(`${player.getName()} DREW by equalling ${this.dealer.getName()}.`);
+                } else if (playerHandValue > dealerHandValue) {
+                    console.log(chalk.greenBright(`${player.getName()} WON by beating ${this.dealer.getName()}.`))
+                } else if (dealerHandValue > playerHandValue) {
+                    console.log(chalk.redBright(`${player.getName()} LOST by losing to ${this.dealer.getName()}.`))
+                } else {
+                    throw new Error("Unknown game condition");
+                }
+            }
+        }
+    }
+
     shouldDealerHit() {
         return this.dealer.getHandValue() < 17;
     }
