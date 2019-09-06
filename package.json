@@ -4,6 +4,11 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
+    "chalk": "2.4.2",
+    "clear": "0.1.0",
+    "commander": "3.0.1",
+    "figlet": "1.2.4",
+    "inquirer": "7.0.0"
   },
   "scripts": {
     "start": "NODE_PATH=src/ node src/index.js",
