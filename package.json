@@ -1,0 +1,13 @@
+{
+  "name": "blackjack",
+  "author": "Simon Ayzman",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "NODE_PATH=src/ node src/index.js",
+    "debug": "NODE_PATH=src/ node --inspect src/index.js",
+    "test": "echo 'No tests written'"
+  }
+}
