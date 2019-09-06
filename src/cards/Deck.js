@@ -1,7 +1,7 @@
 const Card = require("cards/Card");
+const constants = require("lib/constants");
 
-const SUITS = ["♠", "♥", "♣", "♦"];
-const RANKS = [2,3,4,5,6,7,8,9,10,"J","Q","K","A"];
+const { ALL_SUITS, ALL_RANKS } = constants;
 
 class Deck {
     constructor() {
@@ -10,10 +10,10 @@ class Deck {
 
     reset() {
         this.deck = [];
-        for (let rankIndex = 0; rankIndex < RANKS.length; rankIndex++) {
-            const currentRank = RANKS[rankIndex];
-            for (let suitIndex = 0; suitIndex < SUITS.length; suitIndex++) {
-                const currentSuit = SUITS[suitIndex];
+        for (let rankIndex = 0; rankIndex < ALL_RANKS.length; rankIndex++) {
+            const currentRank = ALL_RANKS[rankIndex];
+            for (let suitIndex = 0; suitIndex < ALL_SUITS.length; suitIndex++) {
+                const currentSuit = ALL_SUITS[suitIndex];
                 const card = new Card(currentRank, currentSuit);
                 this.deck.push(card);
             }
