@@ -21,7 +21,7 @@ class BlackjackPlayer {
     }
 
     displayHand(firstCardHidden = false) {
-        let handOutput = `${this.name} (${this.getHandValue()}): `;
+        let handOutput = `${this.name} (${firstCardHidden ? 'XX' : this.getHandValue()}): `;
         for (let handIndex = 0; handIndex < this.hand.length; handIndex++) {
             const card = this.hand[handIndex];
 
@@ -30,7 +30,7 @@ class BlackjackPlayer {
             } else {
                 handOutput += card.getCardFace();
             }
-            
+
             if (handIndex + 1 < this.hand.length) {
                 handOutput += " ";
             }
