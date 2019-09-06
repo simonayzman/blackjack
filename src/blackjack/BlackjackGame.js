@@ -52,6 +52,8 @@ class BlackjackGame {
 
     playRound() {
         this.resetRound();
+    shouldDealerHit() {
+        return this.dealer.getHandValue() < 17;
     }
 }
 
