@@ -20,6 +20,24 @@ class Deck {
         }
     }
 
+    // Algorithm based on Fisher-Yates (aka Knuth) Shuffle
+    // StackOverflow reference here: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    shuffle() {
+        var currentIndex = this.deck.length, temporaryValue, randomIndex;      
+        while (0 !== currentIndex) {      
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;      
+          temporaryValue = this.deck[currentIndex];
+          this.deck[currentIndex] = this.deck[randomIndex];
+          this.deck[randomIndex] = temporaryValue;
+        }      
+    }
+
+    dealCard() {
+        const card = this.deck.pop();
+        return card;
+    }
+
     isEmpty() {
         return this.deck.length === 0;
     }
