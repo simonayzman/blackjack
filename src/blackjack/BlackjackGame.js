@@ -127,7 +127,7 @@ class BlackjackGame {
                 } else if (playerHandValue > dealerHandValue) {
                     console.log(chalk.greenBright(`${player.getName()} WON by beating ${this.dealer.getName()}.`))
                 } else if (dealerHandValue > playerHandValue) {
-                    console.log(chalk.redBright(`${player.getName()} LOST by losing to ${this.dealer.getName()}.`))
+                    console.log(chalk.redBright(`${player.getName()} LOST by being weaker than ${this.dealer.getName()}.`))
                 } else {
                     throw new Error("Unknown game condition");
                 }
