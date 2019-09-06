@@ -13,7 +13,7 @@ npm start
 
 ### Usage
 
-When the game starts, the program asks for the number of players playing. Then, the game proceeds by showing the initial deal (with the dealer's first card hidden), and sequentually asking each player whether they would like to hit or stand. After all the players have gone, the dealer then reveals their hand and proceeds to hit until they bust or their hand value is above 16. Then, the final showdown occurs, summarizing the players' wins, losses, and draws. The program then prompts for whether another round should be played
+When the game starts, the program asks for the number of players playing. Then, the game proceeds by showing the initial deal (with the dealer's first card hidden), and sequentually asking each player whether they would like to hit or stand. After all the players have gone, the dealer then reveals their hand and proceeds to hit until they bust or their hand value is above 16. Then, the final showdown occurs, summarizing the players' wins, losses, and draws. The program then asks whether another round should be played.
 
 ### Caveats
 
