@@ -6,6 +6,11 @@ const figlet = require('figlet');
 const Deck = require("cards/Deck");
 const BlackjackPlayer = require("blackjack/BlackjackPlayer");
 
+const PLAYER_ACTIONS = {
+    Hit: 'Hit',
+    Stand: 'Stand',
+};
+
 class BlackjackGame {
     constructor(numberOfPlayers) {
         this.deck = new Deck;
@@ -50,7 +55,7 @@ class BlackjackGame {
         clear();
     }
 
-    playRound() {
+    async playRound() {
         this.resetRound();
 
         // Initial deal
@@ -65,6 +70,37 @@ class BlackjackGame {
             player.displayHand();
         }
         console.log("=====================\n");
+
+        // Players turn
+        for (let player of this.players) {
+            let playerStands = false;
+            let playerHandValue = 0;
+            while (!playerStands && playerHandValue <= 21) {
+                player.displayHand();
+                const { playerAction } = await inquirer.prompt([
+                    {
+                        name: 'playerAction',
+                        type: 'list',
+                        message: `${player.getName()}, what do you want to do?`,
+                        choices: [PLAYER_ACTIONS.Hit, PLAYER_ACTIONS.Stand],
+                    },
+                ]);
+                if (playerAction === PLAYER_ACTIONS.Hit) {
+                    player.receiveNewCard(this.deck.dealCard());
+                    playerHandValue = player.getHandValue();
+                } else if (playerAction === PLAYER_ACTIONS.Stand) {
+                    playerStands = true;
+                } else {
+                    throw new Error("Unrecognized action.");
+                }
+            }
+
+            player.displayHand();
+            if (playerHandValue > 21) {
+                console.log(`${player.getName()} busted!`);
+            }
+            console.log();
+        }
 
     shouldDealerHit() {
         return this.dealer.getHandValue() < 17;
